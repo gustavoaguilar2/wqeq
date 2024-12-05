@@ -1,0 +1,337 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E6F8F0;
+    overflow: hidden; /* Evita barras de desplazamiento innecesarias */
+}
+
+header {
+    text-align: center;
+    background-color: #4CAF93;
+    color: white;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+/* Contenedor Principal */
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 100px); /* Toda la altura disponible menos el header */
+}
+
+/* Barra Lateral */
+.sidebar {
+    width: 200px;
+    background: #4CAF93;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+}
+
+.tab-btn {
+    background: #4CAF93;
+    color: white;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn.active {
+    background: #379D76;
+    color: white;
+}
+
+.tab-btn:hover {
+    background: #379D76;
+    transform: scale(1.05);
+}
+
+/* Contenido Principal */
+main {
+    flex: 1;
+    padding: 20px;
+    background: #E6F8F0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Secciones */
+.tab-content {
+    display: none;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tarjetas de Inquilinos */
+.inquilinos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.inquilino-card {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inquilino-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.inquilino-card span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4CAF93;
+}
+
+.inquilino-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Formularios Compactos y en Línea */
+.formulario {
+    background: transparent; /* Eliminar el fondo del formulario para que parezca más unificado */
+    padding: 0; /* Reducir el padding */
+    box-shadow: none; /* Eliminar la sombra */
+    border-radius: 0; /* Eliminar los bordes redondeados */
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 150px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #4CAF93;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+/* Botón dentro del formulario */
+button {
+    flex: 1 1 100%;
+    padding: 8px;
+    background: #4CAF93;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #379D76;
+}
+
+/* Contenedor Cobros */
+/* Contenedor Cobros */
+.contenedor-cobros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Reducir gap para que estén más cerca */
+    justify-content: space-between; /* Alinear las secciones a los extremos */
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Cobro General y Específico */
+.cobro-general, .cobro-especifico {
+    flex: 1 1 48%;
+    max-width: 48%;
+    background: none; /* Eliminar el fondo */
+    padding: 0; /* Eliminar el padding */
+    box-shadow: none; /* Eliminar sombra */
+    border: none; /* Eliminar borde */
+    border-radius: 0; /* Eliminar bordes redondeados */
+}
+
+.cobro-general form, .cobro-especifico form {
+    width: 100%;
+    background: #FFFFFF; /* Fondo blanco para el formulario */
+    padding: 15px; /* Añadir padding interno al formulario */
+    border-radius: 5px; /* Añadir borde redondeado al formulario */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Formularios Compactos y en Línea */
+.formulario {
+    padding: 10px; /* Añadir un pequeño padding */
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.form-group {
+    flex: 1 1 100%;
+    margin-bottom: 10px; /* Añadir margen inferior entre grupos para que no estén pegados */
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #4CAF93;
+}
+
+/* Checkbox alineados */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.checkbox-container .expensa-info {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container .expensa-info span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2); /* Aumentar un poco el tamaño del checkbox para mejor visibilidad */
+}
+
+/* Tabla de Cobros Registrados */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.tabla th, .tabla td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.tabla th {
+    background: #4CAF93;
+    color: white;
+}
+
+button {
+    padding: 10px;
+    background: #4CAF93;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Añadir margen superior para separar el botón del contenido previo */
+}
+
+button:hover {
+    background: #379D76;
+}
+
+
+/* Barra de desplazamiento personalizada */
+main::-webkit-scrollbar {
+    width: 8px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #4CAF93;
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-track {
+    background: #E6F8F0;
+}
+
+/* Estilo del modal de la calculadora */
+.calculadora-modal {
+    display: none; /* Por defecto no se muestra */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+}
+
+.calculadora-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-calculadora {
+    margin-top: 20px;
+    background-color: #4CAF93;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-calculadora:hover {
+    background-color: #379D76;
+}
+
+
+

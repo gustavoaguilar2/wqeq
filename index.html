@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Expensas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Expensas</h1>
+    </header>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <div class="sidebar">
+            <button class="tab-btn active" data-tab="inquilinos">Inquilinos</button>
+            <button class="tab-btn" data-tab="expensas">Expensas</button>
+            <button class="tab-btn" data-tab="cobros">Cobros</button>
+            <button class="tab-btn" data-tab="calculadora">Calculadora</button> <!-- Nuevo botón para calculadora -->
+        </div>
+
+        <!-- Contenido Principal -->
+        <main>
+            <!-- Sección Inquilinos -->
+            <div id="inquilinos" class="tab-content active">
+                <h2>Inquilinos</h2>
+                <div class="inquilinos-grid">
+                    <!-- Inquilinos Cards -->
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/rattata.jpg" alt="Rattata">
+                        <span>Juanpi</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/charmander.jpg" alt="Charmander">
+                        <span>Sol</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/bulbasaur.jpg" alt="Bulbasaur">
+                        <span>Flor</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/squirtle.jpg" alt="Squirtle">
+                        <span>Martina</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/jigglypuff.jpg" alt="Jigglypuff">
+                        <span>Mirtha</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/eevee.jpg" alt="Eevee">
+                        <span>Chini</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/psyduck.jpg" alt="Psyduck">
+                        <span>Javier</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/vulpix.jpg" alt="Vulpix">
+                        <span>Valeria</span>
+                    </div>
+                    <div class="inquilino-card">
+                        <img src="https://img.pokemondb.net/artwork/lugia.jpg" alt="Lugia">
+                        <span>Diego</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Expensas -->
+            <div id="expensas" class="tab-content">
+                <h2>Expensas</h2>
+                <form id="expensas-monto-form" class="formulario">
+                    <div class="form-group">
+                        <label for="categoria-expensa">Categoría</label>
+                        <input type="text" id="categoria-expensa" placeholder="Nombre de la expensa">
+                    </div>
+                    <div class="form-group">
+                        <label for="monto-expensa">Monto</label>
+                        <input type="number" id="monto-expensa" placeholder="Monto">
+                    </div>
+                    <button type="submit">Agregar Expensa</button>
+                </form>
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Monto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="montos-expensas-lista"></tbody>
+                </table>
+            </div>
+
+            <!-- Sección Cobros -->
+            <div id="cobros" class="tab-content">
+                <h2>Cobros</h2>
+                <div class="contenedor-cobros">
+                    <!-- Seleccionar Inquilino General -->
+                    <div class="cobro-general">
+                        <form id="cobro-form" class="formulario">
+                            <h3>Inquilinos Generales</h3>
+                            <div class="form-group">
+                                <label for="inquilino-cobro">Inquilino</label>
+                                <select id="inquilino-cobro">
+                                    <option value="Juanpi">Juanpi</option>
+                                    <option value="Sol">Sol</option>
+                                    <option value="Flor">Flor</option>
+                                    <option value="Martina">Martina</option>
+                                    <option value="Mirtha">Mirtha</option>
+                                    <option value="Chini">Chini</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="expensas-cobro-lista">Seleccionar Expensas</label>
+                                <div id="expensas-cobro-lista">
+                                    <!-- Opciones de expensas se llenarán aquí con checkboxes -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="total-cobro">Total a Pagar</label>
+                                <input type="text" id="total-cobro" placeholder="Total" readonly>
+                            </div>
+                            <button type="submit">Registrar Cobro</button>
+                        </form>
+                    </div>
+
+                    <!-- Tabla de Cobros Registrados -->
+                    <div class="cobro-general-table">
+                        <h3>Cobros Generales Registrados</h3>
+                        <table class="tabla">
+                            <thead>
+                                <tr>
+                                    <th>Inquilino</th>
+                                    <th>Expensas Seleccionadas</th>
+                                    <th>Total</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cobros-lista">
+                                <!-- Cobros Generales se llenarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Sección Cobros Específicos -->
+                    <div class="cobro-especifico">
+                        <form id="cobro-especifico-form" class="formulario">
+                            <h3>Inquilinos con Cobros Especiales</h3>
+                            <div class="form-group">
+                                <label for="inquilino-cobro-especifico">Inquilino</label>
+                                <select id="inquilino-cobro-especifico">
+                                    <option value="Javier">Javier</option>
+                                    <option value="Valeria">Valeria</option>
+                                    <option value="Diego">Diego</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="expensas-cobro-especifico-lista">Seleccionar Expensas</label>
+                                <div id="expensas-cobro-especifico-lista">
+                                    <!-- Expensas Específicas se llenarán aquí con checkboxes -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="total-cobro-especifico">Total a Pagar</label>
+                                <input type="text" id="total-cobro-especifico" placeholder="Total" readonly>
+                            </div>
+                            <button type="submit">Registrar Cobro Específico</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nueva Sección Calculadora -->
+            <div id="calculadora" class="tab-content">
+                <h2>Calculadora de Alquileres</h2>
+                <iframe
+                    title="Calculadora de alquileres"
+                    src="https://arquiler.com/mini?theme=light&backgroundColor=ffffff"
+                    width="800"
+                    height="600">
+                </iframe>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
